@@ -55,7 +55,13 @@ else
         <Fab>
             <FloatingButton size="small" variant="surface" aria-label="Add Exercise" label="Add Exercise" OnClick="BeginAddExercise"><md-icon slot="icon">add</md-icon></FloatingButton>
         </Fab>
-        <AdditionalContent>@RenderSnackBar()</AdditionalContent>
+        <AdditionalContent>
+            @RenderSnackBar()
+            @if(Session is {NextExercise: {NextSet: not null}})
+            {
+                <PlateCalculator Settings="PlateCalculatorSettings.DefaultMetric"  Weight="@Session.NextExercise.NextSet.Weight" />
+            }
+            </AdditionalContent>
     </FloatingBottomContainer>
 }
 else

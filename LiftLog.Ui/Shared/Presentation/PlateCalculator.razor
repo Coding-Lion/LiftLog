@@ -1,0 +1,17 @@
+
+<div class="flex flex-col gap-2">
+    <span >Bar/Machine weight: <span>@Settings.BarOrMachineWeight</span></span>
+    @foreach (var plate in Settings.Calculate(Weight))
+    {
+        <span>@plate</span>
+    }
+</div>
+@code {
+    [Parameter]
+    [EditorRequired]
+    public PlateCalculatorSettings Settings { get; set; } = null!;
+
+    [Parameter]
+    [EditorRequired]
+    public decimal Weight { get; set; }
+}
