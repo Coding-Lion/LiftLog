@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Components;
+
 namespace LiftLog.Ui.Shared.Presentation;
 
-public partial class RestTimer : IDisposable
+public partial class RestTimer : ComponentBase, IDisposable
 {
     private const string TimespanFormatStr = @"m\:ss";
     private Timer? _timer;
