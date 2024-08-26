@@ -41,3 +41,9 @@ jobs:
       - name: Build
         run: dotnet build -p:TargetFramework=net8.0-android -f net8.0-android -p:BuildFor=android
         working-directory: ./LiftLog.Maui
+        
+      - name: Archive apks
+        uses: actions/upload-artifact@v4
+        with:
+          name: debug-apk
+          path: ./**/*.apk
